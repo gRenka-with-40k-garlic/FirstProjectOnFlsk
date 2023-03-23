@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='baza.css') }}">
+    <title>GRENKASITE.COM</title>
+</head>
+<body>
+<h1>你好</h1>
+<p>Начните поиск туров прямо сейчас:</p>
+<form action="/search" method="POST">
+    <label for="direction">Выберите направление:</label>
+    <select name="direction" id="direction">
+        <option value="Пекин">Пекин</option>
+        <option value="Шанхай">Шанхай</option>
+        <option value="Гуанчжоу">Гуанчжоу</option>
+    </select>
+    <button type="submit">Найти туры</button>
+</form>
+</body>
+</html>

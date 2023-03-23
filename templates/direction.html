@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='baza.css') }}">
+    <title>GRENKASITE.COM</title>
+</head>
+<body>
+<div class="tour-title">
+    <h1>Туры в направлении {{ direction }}</h1>
+</div>
+
+{% if tours %}
+    <ul>
+        {% for tour in tours %}
+            <div class="tours-container">
+                <div class="tour-card">
+                    <li>
+                        <div class="tour-title">
+                            <p> Отель: {{ tour.name }}<br>
+                        </div>
+
+                        <div class="tour-image">
+                            <img src="{{ url_for('static', filename= tour.img) }}">
+                        </div>
+
+                        <div class="tour-description">
+                            Описание: {{ tour.description }}<br>
+                        </div>
+
+                        <div class="tour-price">
+                            Стоимость: {{ tour.price }} рублей<br>
+                        </div>
+
+                        <div class="tour-duration">
+                            Продолжительность: {{ tour.duration }} дней.</p>
+                        </div>
+
+                          <form action="tour/{{ tour.id }}" >
+                            <button>Заказать</button>
+                          </form>
+{#                            <a href="/tour/{{ tour.id }}">заказатьб</a><br>#}
+{#                            <button type="submit" href="tour/{{ tour.id }}">заказать</button>#}
+
+                    </li>
+                </div>
+            </div>
+        {% endfor %}
+    </ul>
+
+{% else %}
+    <p>Туры не найдены. </p>
+{% endif %}
+
+</body>
+</html>
